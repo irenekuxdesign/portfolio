@@ -1,0 +1,77 @@
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: #FAFAF8; }
+img, video, svg { max-width: 100%; }
+section[id] { scroll-margin-top: 24px; }
+
+/* Case study side navigation stays in view */
+nav.toc { position: sticky; top: 32px; }
+nav.toc a { transition: color .15s ease, border-color .15s ease; }
+nav.toc a:hover { color: #1B1D24 !important; }
+
+/* Footer always full-bleed navy */
+#contact { max-width: 1200px; margin-inline: auto; width: 100%; }
+.home > div:last-of-type { max-width: none !important; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1100px) {
+  [style*="padding-inline: 120px"] { padding-inline: 48px !important; }
+  [style*="padding: 128px 120px"] { padding-left: 48px !important; padding-right: 48px !important; }
+  main[style*="padding: 96px 120px 0"] { padding-left: 48px !important; padding-right: 48px !important; }
+  [style*="margin: 40px -104px"], [style*="margin: 56px -104px"], [style*="margin: 32px -104px"], [style*="-104px"] { margin-right: 0 !important; }
+  .hero h1 { font-size: 72px !important; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 760px) {
+  body { -webkit-text-size-adjust: 100%; }
+  [style*="padding-inline: 120px"], [style*="padding-inline: 48px"] { padding-inline: 20px !important; }
+  [style*="padding: 128px 120px"] { padding: 72px 20px !important; }
+  main[style*="padding: 96px 120px 0"] { padding: 56px 20px 0 !important; }
+  [style*="height: 88px"] { height: 64px !important; }
+
+  /* Layout grids become one column */
+  [style*="grid-template-columns: repeat(12"], [style*="grid-template-columns: repeat(2,"], [style*="grid-template-columns: repeat(3,"], [style*="grid-template-columns: repeat(4,"],
+  [style*="minmax(0, 5fr) minmax(0, 7fr)"], [style*="minmax(0, 1fr) minmax(0, 2fr)"], [style*="minmax(0, 1.785fr)"], [style*="minmax(0, 1fr) auto minmax(0, 1fr)"] { grid-template-columns: minmax(0, 1fr) !important; row-gap: 20px; }
+  [style*="grid-template-columns: repeat(12"] > *, [style*="grid-template-columns: repeat(2,"] > *, [style*="grid-template-columns: repeat(3,"] > *, [style*="grid-template-columns: repeat(4,"] > *,
+  [style*="minmax(0, 5fr) minmax(0, 7fr)"] > *, [style*="minmax(0, 1fr) minmax(0, 2fr)"] > *, [style*="minmax(0, 1.785fr)"] > *, [style*="minmax(0, 1fr) auto minmax(0, 1fr)"] > * { grid-column: 1 / -1 !important; }
+  [style*="minmax(0, 1fr) auto minmax(0, 1fr)"] > svg { transform: rotate(90deg); justify-self: start; margin: 0 !important; }
+  /* Wide diagrams keep their layout and scroll sideways */
+  .case figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .hflow, [style*="28px minmax(0, 1fr) 28px"], [style*="grid-template-columns: repeat(5,"] { min-width: 680px; }
+  .hero .gridlayer { display: none; }
+  /* Hide the in-page side navigation */
+  nav.toc { display: none !important; }
+
+  /* Headings */
+  .hero { min-height: 0 !important; padding-bottom: 72px; }
+  .hero h1 { font-size: 44px !important; line-height: 1.08 !important; }
+  .hero p { font-size: 18px !important; }
+  .hero section { padding-top: 48px !important; }
+  h1 { font-size: 38px !important; }
+  .case h2 { font-size: 30px !important; }
+  #work-title, #about-title, #contact-title { font-size: 34px !important; }
+  .ttl { font-size: 28px !important; }
+  .next p[style*="font-size: 44px"] { font-size: 30px !important; }
+  .next .cta { justify-self: start !important; }
+  .case .num { font-size: 40px !important; }
+  .case blockquote, .case figure p[style*="italic"] { font-size: 18px !important; }
+
+  /* Selected work */
+  .row { padding-block: 40px !important; }
+  .cover { order: -1; height: 240px !important; padding: 20px 0 0 20px !important; }
+  #about img { max-width: 360px; }
+  #about p[style*="font-size: 30px"] { font-size: 24px !important; }
+
+  /* Case study content */
+  .case .sec { padding-top: 72px !important; }
+  .case figure { margin-left: 0 !important; margin-right: 0 !important; }
+  .case figure[style*="padding: 28px 24px"], .case figure [style*="padding: 28px 24px"] { padding: 20px 16px !important; }
+  .case [style*="padding: 40px"] { padding: 16px !important; }
+  .case table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Footer */
+  #contact dl { margin-top: 40px !important; }
+  #contact > div:last-child { flex-direction: column; gap: 8px; margin-top: 56px !important; }
+  [style*="padding: 128px 120px 40px"] { padding: 72px 20px 32px !important; }
+}
